@@ -1,0 +1,11 @@
+[package]
+name = "ex07"
+version = "0.1.0"
+authors = ["Rust Bicycle Book <bicycle-book@example.com>"]
+edition = "2018"
+
+[dependencies]
+lazy_static = "1.2.0"
+
+[dev-dependencies]
+cli_test_dir = "0.1"
