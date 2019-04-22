@@ -1,0 +1,14 @@
+[[package]]
+name = "cli_test_dir"
+version = "0.1.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "hello"
+version = "0.1.0"
+dependencies = [
+ "cli_test_dir 0.1.7 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[metadata]
+"checksum cli_test_dir 0.1.7 (registry+https://github.com/rust-lang/crates.io-index)" = "2bc63338a59538d4f4b767dfb6082e4d26736aadb5100894b76039a04d6ad519"

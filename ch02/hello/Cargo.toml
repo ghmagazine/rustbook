@@ -1,0 +1,10 @@
+[package]             # パッケージセクションの始まり
+name = "hello"        # 名前
+version = "0.1.0"     # バージョン
+authors = ["Rust Bicycle Book <bicycle-book@example.com>"]  # 作者（複数指定可）
+edition = "2018"      # エディション
+
+[dependencies]        # 依存クレートセクションの始まり（いまは空）
+
+[dev-dependencies]    # ビルド時のみ必要な依存クレートセクションの始まり
+cli_test_dir = "0.1"  # 結合テスト（tests/integration_tests.rs）が必要とするクレート
