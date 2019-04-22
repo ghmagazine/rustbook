@@ -1,0 +1,11 @@
+# Visual Studio Codeの設定ファイルが置かれる
+.vscode/
+
+# rustfmtが作成するバックアップファイル
+*.rs.bk
+
+# Emacsが作成するバックアップファイル
+*~
+
+# macOSのFinderが作成する管理ファイル
+.DS_Store
