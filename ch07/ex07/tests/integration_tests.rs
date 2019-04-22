@@ -26,6 +26,7 @@ Dropping Child(11)
 Dropping Child(12)
 "#
     );
+    assert!(output.stderr_str().is_empty());
 }
 
 #[test]
@@ -52,6 +53,7 @@ Dropping Child(11)
 Dropping Child(12)
 "#
     );
+    assert!(output.stderr_str().is_empty());
 }
 
 #[test]
@@ -59,6 +61,7 @@ fn run_ch07_03() {
     let testdir = TestDir::new("./examples/ch07_03_nll", "Run ch07_03");
     let output = testdir.cmd().expect_success();
     assert!(output.stdout_str().is_empty());
+    assert!(output.stderr_str().is_empty());
 }
 
 #[test]
@@ -66,6 +69,7 @@ fn run_ch07_04() {
     let testdir = TestDir::new("./examples/ch07_04_static_lifetime", "Run ch07_04");
     let output = testdir.cmd().expect_success();
     assert_eq!(output.stdout_str(), "42\n");
+    assert!(output.stderr_str().is_empty());
 }
 
 #[test]
@@ -84,6 +88,7 @@ Dropping Child(2)
 (g) count: 0, weak.upgrade(): None
 "#
     );
+    assert!(output.stderr_str().is_empty());
 }
 
 #[test]
@@ -91,6 +96,7 @@ fn run_ch07_06() {
     let testdir = TestDir::new("./examples/ch07_06_simple_refcell", "Run ch07_06");
     let output = testdir.cmd().expect_success();
     assert!(output.stdout_str().is_empty());
+    assert!(output.stderr_str().is_empty());
 }
 
 #[test]
@@ -98,6 +104,7 @@ fn run_ch07_07() {
     let testdir = TestDir::new("./examples/ch07_07_tls_refcell", "Run ch07_07");
     let output = testdir.cmd().expect_success();
     assert!(output.stdout_str().is_empty());
+    assert!(output.stderr_str().is_empty());
 }
 
 #[test]
@@ -105,6 +112,7 @@ fn run_ch07_08() {
     let testdir = TestDir::new("./examples/ch07_08_arc_rwlock", "Run ch07_08");
     let output = testdir.cmd().expect_success();
     assert!(output.stdout_str().is_empty());
+    assert!(output.stderr_str().is_empty());
 }
 
 #[test]
@@ -112,6 +120,7 @@ fn run_ch07_09() {
     let testdir = TestDir::new("./examples/ch07_09_static_rwlock", "Run ch07_09");
     let output = testdir.cmd().expect_success();
     assert!(output.stdout_str().is_empty());
+    assert!(output.stderr_str().is_empty());
 }
 
 #[test]
@@ -119,4 +128,5 @@ fn run_ch07_10() {
     let testdir = TestDir::new("./examples/ch07_10_closure", "Run ch07_10");
     let output = testdir.cmd().expect_success();
     assert!(output.stdout_str().is_empty());
+    assert!(output.stderr_str().is_empty());
 }
