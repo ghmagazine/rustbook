@@ -10,6 +10,8 @@ fn main() {
     let bindings = bindgen::Builder::default()
         // バインディングを作る基になるヘッダファイル
         .header("wrapper.h")
+        // `bindgen_test_layout_max_align_t` のテスト失敗を防ぐためにRust 1.28.0以上向けにコード生成する
+        .rust_target(bindgen::RustTarget::Stable_1_28)
         // ビルダーを完了してバインディングを生成する
         .generate()
         .expect("Unable to generate bindings");
@@ -20,4 +22,3 @@ fn main() {
         .write_to_file(out_path.join("bindings.rs"))
         .expect("Couldn't write bindings!");
 }
-
