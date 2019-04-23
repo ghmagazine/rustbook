@@ -1,0 +1,10 @@
+[package]
+name = "c-api"
+version = "0.1.0"
+authors = ["Rust Bicycle Book <bicycle-book@example.com>"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
