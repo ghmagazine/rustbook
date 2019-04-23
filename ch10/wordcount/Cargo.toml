@@ -1,0 +1,22 @@
+[package]
+name = "bicycle-book-wordcount"
+version = "0.1.0"
+authors = ["Rust Bicycle Book <bicycle-book@example.com>"]
+edition = "2018"
+# ここから追記
+license = "MIT OR Apache-2.0"
+description = "シンプルな文字、単語、行の出現頻度の計数機能を提供します。"
+readme = "README.md"
+repository = "https://github.com/your_account/wordcount"
+categories = ["command-line-utilities"]
+keywords = ["example", "frequency", "text"]
+exclude = ["text.txt", "tests/*"]
+
+[badges]
+appveyor = { repository = "your_account/wordcount" }
+travis-ci = { repository = "your_account/wordcount" }
+
+# 追記ここまで
+
+[dependencies]
+regex = "1.0"
