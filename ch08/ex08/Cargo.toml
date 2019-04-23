@@ -1,0 +1,10 @@
+[package]
+name = "ex08"
+version = "0.1.0"
+authors = ["Rust Bicycle Book <bicycle-book@example.com>"]
+edition = "2018"
+
+[dependencies]
+
+[dev-dependencies]
+cli_test_dir = "0.1"
