@@ -1,0 +1,16 @@
+# いろいろ書かれていますが、ローカルホストの5432番ポートにユーザ名postgres、パスワードpasswordのデータベースサーバを立てる設定です
+postgres-data:
+  image: busybox
+  volumes:
+    - /var/lib/postgresql/log-collector-data
+  container_name: log-collector-postgres-datastore
+
+postgresql:
+  image: postgres
+  environment:
+    POSTGRES_USER: postgres
+    POSTGRES_PASSWORD: password
+  ports:
+    - "5432:5432"
+  volumes_from:
+    - postgres-data

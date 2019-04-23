@@ -1,0 +1,8 @@
+[package]
+name = "static-files"
+version = "0.1.0"
+authors = ["Rust Bicycle Book <bicycle-book@example.com>"]
+edition = "2018"
+
+[dependencies]
+actix-web = "0.7.16"

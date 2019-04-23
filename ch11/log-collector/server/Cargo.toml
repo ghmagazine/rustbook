@@ -1,0 +1,22 @@
+[package]
+name = "server"
+version = "0.1.0"
+authors = ["Rust Bicycle Book <bicycle-book@example.com>"]
+edition = "2018"
+
+[dependencies]
+env_logger = "0.6"
+log = "0.4"
+actix-web = "0.7"
+failure = "0.1"
+api = {path = "../api"}
+dotenv = "0.13"
+chrono = "0.4"
+csv = "1"
+actix-web-multipart-file = "0.1"
+futures = "0.1"
+itertools = "0.8"
+
+[dependencies.diesel]
+features = ["postgres", "chrono", "r2d2"]
+version = "1.4"

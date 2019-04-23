@@ -1,0 +1,18 @@
+[package]
+name = "cli"
+version = "0.1.0"
+authors = ["Rust Bicycle Book <bicycle-book@example.com>"]
+edition = "2018"
+
+[dependencies]
+clap = "2"
+reqwest = "0.9"
+csv = "1"
+serde = "1"
+serde_json = "1"
+api = {path = "../api"}
+
+
+[dependencies.chrono]
+features = ["serde"]
+version = "0.4"
