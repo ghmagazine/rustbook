@@ -76,7 +76,7 @@ mod tests {
     // 構造体Studentを定義する
     // 構造体は関連する値を1つにまとめたデータ構造。複数のデータフィールドを持つ
 
-    // deriveあトリビュートを使い、DebugトレイトとPartialEqトレイトの実装を自動導出する
+    // deriveアトリビュートを使い、DebugトレイトとPartialEqトレイトの実装を自動導出する
     #[derive(Debug, PartialEq)]
     struct Student {
         first_name: String,  // first_name（名前）フィールド。String型
