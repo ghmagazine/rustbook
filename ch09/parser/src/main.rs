@@ -78,7 +78,7 @@ impl Token {
     }
 }
 
-// `TokenKind` ど同様の実装をする
+// `TokenKind` と同様の実装をする
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 enum LexErrorKind {
     InvalidChar(char),
