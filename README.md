@@ -65,19 +65,16 @@ WindowsとmacOSをお使いなら`*.zip`を、Linuxをお使いなら`*.tar.gz`�
 本書やサンプルプログラムの内容についてご質問などあるときは、以下の方法でご確認・ご連絡ください。
 
 - [本書の公式サポートページの正誤表][errata] で報告・訂正されていないかご確認
-- [本書の公式サポートページのお問い合わせフォーム][inquiry-form] で編集部へお問い合わせ
 - Slack **rust-jp**チームの `#rust-bicycle-book` チャネルで著者らに質問
   * 参加登録URL： http://rust-jp.herokuapp.com/
+- [本書の公式サポートページのお問い合わせフォーム][inquiry-form] で編集部へお問い合わせ
 - サンプルプログラムの明らかなバグなら、本リポジトリの [issueページ][gh-issues] で直接ご報告いただいても構いません。（その場合でもSlackなどでご一報いただいてからの方がスムーズに対応できるかもしれません）
 
-<!-- 現時点で正誤表が公開されていないため、公開されるまでは書籍紹介ページへリンクしておく -->
-[errata]: https://gihyo.jp/book/2019/978-4-297-10559-4
-<!-- [errata]: https://gihyo.jp/book/2019/978-4-297-10559-4/support -->
-
+[errata]: https://gihyo.jp/book/2019/978-4-297-10559-4/support
 [inquiry-form]: https://gihyo.jp/site/inquiry/book?ISBN=978-4-297-10559-4
 [gh-issues]: https://github.com/ghmagazine/rustbook/issues
 
-## 本書の公式サポートページ
+## 本書の書籍案内ページ
 
 https://gihyo.jp/book/2019/978-4-297-10559-4
 
