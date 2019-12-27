@@ -1,4 +1,4 @@
-use actix_web::{error, http, server, App, HttpResponse, Path, State};
+use actix_web::{error, web, App, HttpResponse, HttpServer};
 use serde_derive::*;
 use tera::{compile_templates, Context, Tera};
 
@@ -11,9 +11,9 @@ struct HelloPath {
     name: String,
 }
 
-fn hello_template(
-    app: State<AppState>,
-    path: Path<HelloPath>,
+async fn hello_template(
+    app: web::Data<AppState>,
+    path: web::Path<HelloPath>,
 ) -> Result<HttpResponse, error::Error> {
     // テンプレートに渡す値を作る
     let mut context = Context::new();
@@ -29,17 +29,20 @@ fn hello_template(
     Ok(HttpResponse::Ok().body(body))
 }
 
-fn main() {
-    server::new(|| {
+#[actix_rt::main]
+async fn main() -> std::io::Result<()> {
+    HttpServer::new(|| {
         // AppStateを準備する
         let app = AppState {
             // compile_templates! でテンプレートを一括でコンパイルできる
             template: compile_templates!("templates/**/*"),
         };
-        // with_stateでアプリケーションデータとして保持
-        App::with_state(app).route("/{name}", http::Method::GET, hello_template)
+        // App::dataでアプリケーションデータとして保持
+        App::new()
+            .data(app)
+            .route("/{name}", web::get().to(hello_template))
     })
-    .bind("localhost:3000")
-    .expect("Can not bind to port 3000")
-    .run();
+    .bind("localhost:3000")?
+    .run()
+    .await
 }

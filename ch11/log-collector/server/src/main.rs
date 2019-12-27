@@ -1,7 +1,10 @@
 #[macro_use]
 extern crate diesel;
-use actix_web::http::Method;
-use actix_web::App;
+use actix_service::ServiceFactory;
+use actix_web::body::Body;
+use actix_web::dev::{ServiceRequest, ServiceResponse};
+use actix_web::error::Error;
+use actix_web::{web, App, HttpServer};
 use diesel::pg::PgConnection;
 use diesel::r2d2::{ConnectionManager, Pool};
 use dotenv::dotenv;
@@ -30,26 +33,46 @@ impl Server {
     }
 }
 
-// ルーティングなどを書く
-pub fn app(server: Server) -> App<Server> {
+// ルーティングなどを書く。
+// ちょっと返り値の型がゴツい。
+pub fn app(
+    server: Server,
+) -> App<
+    impl ServiceFactory<
+        Config = (),
+        Request = ServiceRequest,
+        Response = ServiceResponse<Body>,
+        Error = Error,
+        InitError = (),
+    >,
+    Body,
+> {
     use crate::handlers::*;
 
-    let app: App<Server> = App::with_state(server)
-        .route("/logs", Method::POST, handle_post_logs)
-        .route("/csv", Method::POST, handle_post_csv)
-        .route("/csv", Method::GET, handle_get_csv)
-        .route("/logs", Method::GET, handle_get_logs);
-
-    app
+    App::new()
+        .data(server)
+        .service(
+            web::resource("/logs")
+                .route(web::post().to(handle_post_logs))
+                .route(web::get().to(handle_get_logs)),
+        )
+        .service(
+            web::resource("/csv")
+                .route(web::post().to(handle_post_csv))
+                .route(web::get().to(handle_get_csv)),
+        )
 }
 
-fn main() {
+#[actix_rt::main]
+async fn main() -> std::io::Result<()> {
     // 環境変数でログレベルを設定する
     env_logger::init();
 
     let server = Server::new();
-    ::actix_web::server::new(move || app(server.clone()))
-        .bind("localhost:3000")
-        .expect("Can not bind to port 3000")
-        .run();
+    // サーバデータ(= コネクションプール)をcloneしているので
+    // スレッド間で共通のコネクションプールを使うことになる。
+    HttpServer::new(move || app(server.clone()))
+        .bind("localhost:3000")?
+        .run()
+        .await
 }
