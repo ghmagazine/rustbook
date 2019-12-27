@@ -5,17 +5,19 @@ authors = ["Rust Bicycle Book <bicycle-book@example.com>"]
 edition = "2018"
 
 [dependencies]
-env_logger = "0.6"
-log = "0.4"
-actix-web = "0.7"
-failure = "0.1"
+actix-web = "2"
 api = {path = "../api"}
 dotenv = "0.13"
 chrono = "0.4"
 csv = "1"
-actix-web-multipart-file = "0.1"
-futures = "0.1"
+futures = "0.3"
+env_logger = "0.7"
 itertools = "0.8"
+log = "0.4"
+actix-rt = "1"
+actix-multipart = "0.2"
+tempfile = "3"
+actix-service = "1.0.1"
 
 [dependencies.diesel]
 features = ["postgres", "chrono", "r2d2"]

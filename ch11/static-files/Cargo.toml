@@ -5,4 +5,6 @@ authors = ["Rust Bicycle Book <bicycle-book@example.com>"]
 edition = "2018"
 
 [dependencies]
-actix-web = "0.7.16"
+actix-web = "2"
+actix-rt = "1.0.0"
+actix-files = "0.2.1"
